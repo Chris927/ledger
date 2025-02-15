@@ -135,6 +135,7 @@
         </thead>
         <tbody>
           <xsl:for-each select="transaction">
+            <xsl:sort select="date" order="ascending"/>
             <tr>
               <td>
                 <xsl:attribute name="rowspan"><xsl:value-of select="count(postings/posting)+1"/></xsl:attribute>
@@ -180,6 +181,7 @@
           </thead>
           <tbody>
             <xsl:for-each select="/ledger/transactions/transaction[postings/posting/account/@ref = $id]">
+              <xsl:sort select="date" order="ascending"/>
               <tr>
                 <td>
                   <xsl:attribute name="rowspan"><xsl:value-of select="count(postings/posting[account/@ref = $id])+1"/></xsl:attribute>
